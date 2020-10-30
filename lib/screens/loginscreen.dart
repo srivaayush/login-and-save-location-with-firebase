@@ -47,6 +47,7 @@ class _LoginScrState extends State<LoginScr> {
     } catch (error) {
       var errormsg = "Auth Failed. Try Again!";
       _showErrorDialogue(errormsg);
+      _getCurLoc(_authData['email']);
     }
   }
 
