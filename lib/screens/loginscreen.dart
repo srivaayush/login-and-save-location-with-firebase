@@ -43,11 +43,11 @@ class _LoginScrState extends State<LoginScr> {
     try {
       await Provider.of<Auth>(context, listen: false)
           .login(_authData['email'], _authData['pass']);
-      _getCurLoc(_authData['email']);
+      // _getCurLoc(_authData['email']);
     } catch (error) {
       var errormsg = "Auth Failed. Try Again!";
       _showErrorDialogue(errormsg);
-      _getCurLoc(_authData['email']);
+      // _getCurLoc(_authData['email']);
     }
   }
 
@@ -141,21 +141,21 @@ class _LoginScrState extends State<LoginScr> {
     );
   }
 
-  String _loc = "";
+  // String _loc = "";
 
-  //Function to get current Location
-  void _getCurLoc(String email) async {
-    final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-    print(position);
+  // //Function to get current Location
+  // void _getCurLoc(String email) async {
+  //   final position = await Geolocator.getCurrentPosition(
+  //       desiredAccuracy: LocationAccuracy.high);
+  //   print(position);
 
-    setState(() {
-      _loc =
-          "Current Latitude : ${position.latitude}, \n Current Longitude: ${position.longitude}";
-    });
-    await DatabaseService(uid: email).updateUserData(
-        position.latitude.toString(), position.longitude.toString());
+  //   setState(() {
+  //     _loc =
+  //         "Current Latitude : ${position.latitude}, \n Current Longitude: ${position.longitude}";
+  //   });
+  //   await DatabaseService(uid: email).updateUserData(
+  //       position.latitude.toString(), position.longitude.toString());
 
-    Navigator.of(context).pushReplacementNamed(HomeScr.routeName);
-  }
+  //   Navigator.of(context).pushReplacementNamed(HomeScr.routeName);
+  // }
 }
