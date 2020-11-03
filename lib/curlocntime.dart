@@ -40,7 +40,7 @@ class _CurLocAndTimeState extends State<CurLocAndTime> {
     print(position);
     setState(() {
       _loctime =
-          "Current Latitude : ${position.latitude}, Current Longitude: ${position.longitude}, Current Time: $daytimee";
+          "Current :::::::: Lat : ${position.latitude}, Long: ${position.longitude}, Time: $daytimee       . \t";
     });
     _saveLoc(_loctime);
   }
