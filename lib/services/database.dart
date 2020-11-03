@@ -1,15 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:login_with_frebase/modules/user_data.dart';
 
 class DatabaseService {
   final String uid;
   DatabaseService({this.uid});
 
-  final CollectionReference location = Firestore.instance.collection('locate');
+  // collection reference
+  final CollectionReference loc = Firestore.instance.collection('Location');
 
-  Future updateUserData(String latitude, String longitude) async {
-    return await location.document(uid).setData({
-      'latitude': latitude,
-      'longitude': longitude,
+  Future<void> updateUserData() async {
+    return await loc.document(uid).setData({
+      'locDetail': ' ',
     });
+  }
+
+  List<userData> _userListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return userData(
+        locDetail: doc.data['locDetail'] ?? '',
+      );
+    }).toList();
+  }
+
+  Stream<List<userData>> get locs {
+    return loc.snapshots().map(_userListFromSnapshot);
   }
 }
