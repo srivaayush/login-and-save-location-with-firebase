@@ -5,12 +5,12 @@ import 'package:provider/provider.dart';
 
 import 'modules/user.dart';
 
-class CurLocAndTime extends StatefulWidget {
+class CurLocAndTimeA extends StatefulWidget {
   @override
-  _CurLocAndTimeState createState() => _CurLocAndTimeState();
+  _CurLocAndTimeAState createState() => _CurLocAndTimeAState();
 }
 
-class _CurLocAndTimeState extends State<CurLocAndTime> {
+class _CurLocAndTimeAState extends State<CurLocAndTimeA> {
   String _loctime = "";
 
   //Function to save data
@@ -40,7 +40,7 @@ class _CurLocAndTimeState extends State<CurLocAndTime> {
     print(position);
     setState(() {
       _loctime =
-          "Current :::::::: Lat : ${position.latitude}, Long: ${position.longitude}, Time: $daytimee       . \t";
+          "Current :::::::: Lat : ${position.latitude}, Long: ${position.longitude}, Time: $daytimee       . \t from A";
     });
     _saveLoc(_loctime);
   }

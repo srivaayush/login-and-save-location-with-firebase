@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_with_frebase/curlocntime.dart';
+import 'package:login_with_frebase/curlocntimeA.dart';
+import 'package:login_with_frebase/curlocntimeB.dart';
 import 'package:login_with_frebase/modules/user_data.dart';
 import 'package:login_with_frebase/services/auth.dart';
 import 'package:login_with_frebase/services/database.dart';
@@ -29,11 +30,23 @@ class Homme extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CurLocAndTime()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CurLocAndTimeB()));
                 },
                 color: Colors.red,
-                child: Text("Find & save Location"),
+                child: Text("Find & save Location at B"),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CurLocAndTimeA()));
+                },
+                color: Colors.red,
+                child: Text("Find & save Location at A"),
               ),
             ],
           ),
