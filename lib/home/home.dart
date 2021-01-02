@@ -5,6 +5,7 @@ import 'package:login_with_frebase/modules/user_data.dart';
 import 'package:login_with_frebase/services/auth.dart';
 import 'package:login_with_frebase/services/database.dart';
 import 'package:provider/provider.dart';
+// import '';
 
 class Homme extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -30,20 +31,24 @@ class Homme extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CurLocAndTimeB()));
+                  CurLocAndTimeB.getCurLoc(context);
+
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => CurLocAndTimeB()));
                 },
                 color: Colors.red,
                 child: Text("Find & save Location at B"),
               ),
               FlatButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CurLocAndTimeA()));
+                  CurLocAndTimeA.getCurLoc(context);
+
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => CurLocAndTimeA()));
                 },
                 color: Colors.red,
                 child: Text("Find & save Location at A"),

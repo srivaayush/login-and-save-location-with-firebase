@@ -10,7 +10,7 @@ class AuthService {
   User _userFromFirebaseUser(FirebaseUser user) {
     return user != null ? User(uid: user.uid) : null;
   }
-
+  
   // auth change user stream
   Stream<User> get user {
     return _auth.onAuthStateChanged.map(_userFromFirebaseUser);
@@ -66,6 +66,7 @@ class AuthService {
 
   //sign out
 
+  // ignore: non_constant_identifier_names
   Future SignOut() async {
     try {
       return await _auth.signOut();
